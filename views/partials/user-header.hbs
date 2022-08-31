@@ -1,0 +1,66 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="col-lg-2" style="text-align: center;">
+                <a href="/" class="navbar-brand">Brand</a>
+            </div>
+            <div class="col-lg-4">
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <button type="button" class="butto btn btn-secondary"><i class="bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col-lg-4 col-sm-12">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="/" class="nav-item nav-link active m-2">Home</a>
+                        {{#if user}}
+                        <a href="#" class="nav-item nav-link m-2">Order</a>
+                        {{/if}}
+                        <div>
+                        <a href="/cart" class="nav-item nav-link position-relative m-2">cart
+                                {{#if cartCount}}
+                            <span id="cart-count" class="position-absolute top-0 start-200 badge rounded-pill bg-success">
+                                {{cartCount}}
+                            </span>
+                                {{/if}}
+                        </a>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link m-2" data-bs-toggle="dropdown">Category</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Inbox</a>
+                                <a href="#" class="dropdown-item">Sent</a>
+                                <a href="#" class="dropdown-item">Drafts</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            {{#if user}}
+                            {{user.username}}
+                            {{else}}
+                            Account
+                            {{/if}}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Inbox</a>
+                            <a href="#" class="dropdown-item">Sent</a>
+                            {{#if user}}
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                            {{else}}
+                            <a class="dropdown-item" href="/login">Login</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

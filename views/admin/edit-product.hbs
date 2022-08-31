@@ -1,0 +1,36 @@
+<section>
+    <div class="container">
+        <form action="/admin/edit-product?id={{product._id}}" method="post" enctype="multipart/form-data">
+            <div class="col-8 m-5">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input name="name" value="{{product.name}}" type="text" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">description</label>
+                    <input name="description" value="{{product.description}}" type="text" class="form-control"
+                        id="exampleInputPassword1" placeholder="Description">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">image</label>
+                    <img id="Imgview" src="/product-images/{{product._id}}.jpg" style="width: 100px;height:auto;">
+                    <input name="Image" type="file" onchange='viewImage(event)' class="form-control"
+                        aria-describedby="Image">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">price</label>
+                    <input name="price" value="{{product.price}}" type="number" class="form-control"
+                        id="exampleInputPassword1" placeholder="price">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script>
+    const viewImage = (event) => {
+        console.log('hai iam ', event.target.files)
+        document.getElementById("Imgview").src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
