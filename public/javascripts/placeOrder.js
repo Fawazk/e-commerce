@@ -4,8 +4,11 @@ $('#checkout-form').submit((e)=>{
         url:'/place-order',
         method:'post',
         data:$('#checkout-form').serialize(),
-        success:(responce)=>{
-            alert(responce)
+        success:(response)=>{
+            alert(response)
+            if (response.status){
+                location.href='/order-success'
+            }
         }
     })
 })

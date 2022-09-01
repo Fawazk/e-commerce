@@ -4,11 +4,14 @@ const addToCart=(prodId)=>{
             method:'get',
             success:((responce)=>{
                 if (responce.status){
-                    console.log('hai')
                     let count = $('#cart-count').html()
-                    count = parseInt(count)+1
-                    console.log(count)
-                    $('#cart-count').html(count)
+                    console.log(count,'count')
+                    if(count){
+                        count = parseInt(count)+1
+                        $('#cart-count').html(count)
+                    }else{
+                        $('#cart').html('cart'+'<span id="cart-count" class="position-absolute top-0 start-200 badge rounded-pill bg-success">'+1+'</span>')
+                    }
                 }
             })
         })
@@ -55,4 +58,3 @@ const deleteCartProduct=(cart,product)=>{
         }
     })
 }
-

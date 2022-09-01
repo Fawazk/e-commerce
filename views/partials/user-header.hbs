@@ -23,13 +23,14 @@
                         <a href="#" class="nav-item nav-link m-2">Order</a>
                         {{/if}}
                         <div>
-                        <a href="/cart" class="nav-item nav-link position-relative m-2">cart
+                            <a href="/cart" id="cart" class="nav-item nav-link position-relative m-2">cart
                                 {{#if cartCount}}
-                            <span id="cart-count" class="position-absolute top-0 start-200 badge rounded-pill bg-success">
-                                {{cartCount}}
-                            </span>
+                                <span id="cart-count"
+                                    class="position-absolute top-0 start-200 badge rounded-pill bg-success">
+                                    {{cartCount}}
+                                </span>
                                 {{/if}}
-                        </a>
+                            </a>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link m-2" data-bs-toggle="dropdown">Category</a>
